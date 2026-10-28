@@ -1,5 +1,5 @@
 import { Database } from "bun:sqlite";
-
+import { mkdirSync } from "node:fs";
 let database
 
 export function initDB() {
@@ -7,6 +7,7 @@ export function initDB() {
         return database
     }
 
+    mkdirSync("data", {recursive: true})
     database = new Database("data/finance.sqlite")
 
     database.exec(`
