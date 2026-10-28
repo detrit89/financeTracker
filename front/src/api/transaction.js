@@ -1,5 +1,5 @@
 
-const BASE_URL = 'http://localhost:3000/api/transactions'
+const BASE_URL = 'https://financetracker-iwt9.onrender.com/api/transactions'
 export async function getTransactions() { 
     const response = await fetch(BASE_URL)
     if(!response.ok) {
