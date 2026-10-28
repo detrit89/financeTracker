@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none" role="img" aria-labelledby="title">
+<title id="title">Blue wallet</title>
+<defs>
+  <linearGradient id="back" x1="26" y1="25" x2="103" y2="78" gradientUnits="userSpaceOnUse"><stop stop-color="#8DD1FF"/><stop offset=".48" stop-color="#328AFF"/><stop offset="1" stop-color="#0E54E8"/></linearGradient>
+  <linearGradient id="front" x1="24" y1="46" x2="103" y2="111" gradientUnits="userSpaceOnUse"><stop stop-color="#B5E6FF"/><stop offset=".4" stop-color="#459BFF"/><stop offset="1" stop-color="#0750E9"/></linearGradient>
+  <linearGradient id="clasp" x1="84" y1="65" x2="111" y2="96" gradientUnits="userSpaceOnUse"><stop stop-color="#277CFF"/><stop offset="1" stop-color="#0041CA"/></linearGradient>
+</defs>
+<path d="M21 47c0-8 5-14 13-17L87 13c10-3 18 3 18 13v35H21V47Z" fill="url(#back)"/>
+<path d="M21 53c0-11 9-20 20-20h47c11 0 20 9 20 20v46c0 11-9 20-20 20H41c-11 0-20-9-20-20V53Z" fill="url(#front)"/>
+<path d="M41 33h47c11 0 20 9 20 20v2c0-11-9-20-20-20H41c-11 0-20 9-20 20v-2c0-11 9-20 20-20Z" fill="#F4FCFF" fill-opacity=".75"/>
+<rect x="79" y="65" width="39" height="33" rx="12" fill="url(#clasp)"/>
+<circle cx="97.5" cy="81.5" r="6" fill="#F6FBFF"/>
+</svg>
