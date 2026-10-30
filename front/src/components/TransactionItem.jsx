@@ -69,11 +69,11 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                 </>
             ) : (
                 <>
-                    <td className="px-3 py-4">
+                    <td className="break-words px-3 py-4 [overflow-wrap:anywhere]">
                         {transaction.description}
                     </td>
                     <td
-                        className={`px-3 py-4 font-semibold ${
+                        className={`break-words px-3 py-4 font-semibold [overflow-wrap:anywhere] ${
                             transaction.type === "income"
                                 ? "text-green-600"
                                 : "text-red-500"
@@ -101,13 +101,13 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                 </>
             )}
             <td className="px-3 py-4">
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                     {isEditing ? (
                         <>
                             <button
                                 type="button"
                                 onClick={handleSave}
-                                className="rounded-lg bg-green-100 px-3 py-2 text-green-700 hover:bg-green-200"
+                                className="min-h-11 rounded-lg bg-green-100 px-3 py-2 text-green-700 hover:bg-green-200"
                             >
                                 Save
                             </button>
@@ -115,7 +115,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             <button
                                 type="button"
                                 onClick={handleCancel}
-                                className="rounded-lg bg-gray-100 px-3 py-2 hover:bg-gray-200"
+                                className="min-h-11 rounded-lg bg-gray-100 px-3 py-2 hover:bg-gray-200"
                             >
                                 Cancel
                             </button>
@@ -125,7 +125,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             <button
                                 type="button"
                                 onClick={() => setIsEditing(true)}
-                                className="rounded-lg bg-gray-100 px-3 py-2 hover:bg-gray-200"
+                                className="min-h-11 rounded-lg bg-gray-100 px-3 py-2 hover:bg-gray-200"
                             >
                                 Edit
                             </button>
@@ -133,7 +133,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             <button
                                 type="button"
                                 onClick={() => onDelete(transaction.id)}
-                                className="rounded-lg bg-red-100 px-3 py-2 text-red-600 hover:bg-red-200"
+                                className="min-h-11 rounded-lg bg-red-100 px-3 py-2 text-red-600 hover:bg-red-200"
                             >
                                 Delete
                             </button>
