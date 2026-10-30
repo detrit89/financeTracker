@@ -9,7 +9,7 @@ export function SearchBar({ search, setSearch }) {
                 }}
                 aria-label="Search transactions"
                 placeholder="Search transactions..."
-                className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 px-4 py-2"
+                className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 dark:border-slate-700 text-slate-900 dark:text-white bg-white dark:bg-slate-800 px-4 py-2 dark:placeholder:text-slate-400"
             />
         </div>
     );

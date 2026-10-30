@@ -31,7 +31,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
     }
 
     return (
-        <tr className="border-b border-gray-200">
+        <tr className="border-b border-gray-200 dark:border-slate-700">
             {isEditing ? (
                 <>
                     <td className="px-3 py-4">
@@ -40,7 +40,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             aria-label="Description"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            className="w-full rounded-lg border border-gray-200 p-2"
+                            className="w-full dark:bg-slate-800 dark:text-white rounded-lg border border-gray-200 dark:border-slate-700 p-2"
                         />
                     </td>
                     <td className="px-3 py-4">
@@ -49,11 +49,11 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             aria-label="Amount"
                             value={amount}
                             onChange={(e) => setAmount(e.target.value)}
-                            className="w-full rounded-lg border border-gray-200 p-2"
+                            className="w-full rounded-lg dark:bg-slate-800 dark:text-white border border-gray-200 dark:border-slate-700 p-2"
                         />
                     </td>
                     <td className="px-3 py-4">
-                        <span className={transaction.type === "income" ? "text-green-600" : "text-red-500"}>
+                        <span className={transaction.type === "income" ? "text-green-600 dark:text-green-400" : "text-red-500 dark:text-red-400"}>
                             {transaction.type}
                         </span>
                     </td>
@@ -63,20 +63,20 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             aria-label="Transaction date"
                             value={transactionDate}
                             onChange={(e) => setTransactionDate(e.target.value)}
-                            className="w-full rounded-lg border border-gray-200 p-2"
+                            className="w-full rounded-lg dark:bg-slate-800 dark:text-white border border-gray-200 dark:border-slate-700 p-2"
                         />
                     </td>
                 </>
             ) : (
                 <>
-                    <td className="break-words px-3 py-4 [overflow-wrap:anywhere]">
+                    <td className="break-words px-3 py-4 [overflow-wrap:anywhere] text-slate-900 dark:text-white">
                         {transaction.description}
                     </td>
                     <td
-                        className={`break-words px-3 py-4 font-semibold [overflow-wrap:anywhere] ${
+                        className={`break-words px-3 py-4 font-semibold  [overflow-wrap:anywhere] ${
                             transaction.type === "income"
-                                ? "text-green-600"
-                                : "text-red-500"
+                                ? "text-green-600 dark:text-green-400"
+                                : "text-red-500 dark:text-red-400"
                         }`}
                     >
                         {transaction.type === "income" ? "+" : "-"}
@@ -86,14 +86,14 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                         <span
                             className={`rounded-md px-3 py-1 text-sm ${
                                 transaction.type === "income"
-                                    ? "bg-green-100 text-green-700"
-                                    : "bg-red-100 text-red-600"
+                                    ? "bg-green-100 text-green-700 dark:bg-green-950 dark:text-green-400"
+                                    : "bg-red-100 text-red-600 dark:bg-red-950 dark:text-red-400"
                             }`}
                         >
                             {transaction.type === "income" ? "Income" : "Expense"}
                         </span>
                     </td>
-                    <td className="px-3 py-4 text-gray-500">
+                    <td className="px-3 py-4 text-gray-500 dark:text-slate-400">
                         <time dateTime={transaction.transaction_date}>
                             {transaction.transaction_date}
                         </time>
@@ -107,7 +107,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             <button
                                 type="button"
                                 onClick={handleSave}
-                                className="min-h-11 rounded-lg bg-green-100 px-3 py-2 text-green-700 hover:bg-green-200"
+                                className="min-h-11 rounded-lg bg-green-100 px-3 py-2 text-green-700 hover:bg-green-200 dark:bg-green-950 dark:text-green-400 dark:hover:bg-green-900"
                             >
                                 Save
                             </button>
@@ -115,7 +115,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             <button
                                 type="button"
                                 onClick={handleCancel}
-                                className="min-h-11 rounded-lg bg-gray-100 px-3 py-2 hover:bg-gray-200"
+                                className="min-h-11 rounded-lg bg-gray-100 px-3 py-2 hover:bg-gray-200 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
                             >
                                 Cancel
                             </button>
@@ -125,7 +125,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             <button
                                 type="button"
                                 onClick={() => setIsEditing(true)}
-                                className="min-h-11 rounded-lg bg-gray-100 px-3 py-2 hover:bg-gray-200"
+                                className="min-h-11 rounded-lg bg-gray-100 px-3 py-2 hover:bg-gray-200 dark:bg-slate-700 dark:text-white dark:hover:bg-slate-600"
                             >
                                 Edit
                             </button>
@@ -133,7 +133,7 @@ export function TransactionItem({ transaction, onDelete, onUpdate }) {
                             <button
                                 type="button"
                                 onClick={() => onDelete(transaction.id)}
-                                className="min-h-11 rounded-lg bg-red-100 px-3 py-2 text-red-600 hover:bg-red-200"
+                                className="min-h-11 rounded-lg bg-red-100 px-3 py-2 text-red-600 hover:bg-red-200 dark:bg-red-950 dark:text-red-400 dark:hover:bg-red-900"
                             >
                                 Delete
                             </button>

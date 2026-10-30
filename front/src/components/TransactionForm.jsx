@@ -27,29 +27,29 @@ export function TransactionForm({onTransactionCreated}) {
         
     }
     return (
-        <div className="min-w-0 rounded-lg border border-gray-200 bg-white p-4 shadow-md flex flex-col gap-4">
-            <p className="text-xl font-semibold tracking-tight">Add New Transaction</p>
+        <div className="min-w-0 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 shadow-md flex flex-col gap-4">
+            <p className="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">Add New Transaction</p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
-                    <label className="font-bold" htmlFor="description">Description</label>
-                    <input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 bg-white p-2" placeholder="e.g. Groceries, Salary, etc."/>
+                    <label className="font-bold text-slate-900 dark:text-white" htmlFor="description">Description</label>
+                    <input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} className="min-h-11 w-full text-slate-900 dark:text-white min-w-0 rounded-lg border border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-2" placeholder="e.g. Groceries, Salary, etc."/>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label className="font-bold" htmlFor="amount">Amount</label>
-                    <input type="number" id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 bg-white p-2" placeholder="$0.00" />
+                    <label className="font-bold text-slate-900 dark:text-white" htmlFor="amount">Amount</label>
+                    <input type="number" id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-900 text-slate-900 dark:text-white" placeholder="$0.00" />
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label className="font-bold" htmlFor="type">Type</label>
-                    <select id="type" value={type} onChange={(e) => setType(e.target.value)} className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 bg-white p-2">
-                        <option value="expense">Expense</option>
-                        <option value="income">Income</option>
+                    <label className="font-bold text-slate-900 dark:text-white" htmlFor="type">Type</label>
+                    <select id="type" value={type} onChange={(e) => setType(e.target.value)} className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-900 text-slate-900 dark:text-white">
+                        <option className="text-slate-900 dark:text-white" value="expense">Expense</option>
+                        <option className="text-slate-900 dark:text-white" value="income">Income</option>
                     </select>
                 </div>
                 <div className="flex flex-col gap-2">
-                    <label className="font-bold" htmlFor="transactionDate">Transaction Date</label>
-                    <input type="date" id="transactionDate" value={transactionDate} onChange={(e) => setTransactionDate(e.target.value)} className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 bg-white p-2"/>
+                    <label className="font-bold text-slate-900 dark:text-white" htmlFor="transactionDate">Transaction Date</label>
+                    <input type="date" id="transactionDate" value={transactionDate} onChange={(e) => setTransactionDate(e.target.value)} className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-900 text-slate-900 dark:text-white"/>
                 </div>
-                <button type="submit" className="min-h-11 rounded-xl bg-slate-900 px-4 py-3 font-medium text-white transition-colors hover:bg-slate-800">Add Transaction</button>
+                <button type="submit" className="min-h-11 rounded-xl bg-slate-900 px-4 py-3 font-medium text-white transition-colors hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-white">Add Transaction</button>
             </form>
         </div>
         
