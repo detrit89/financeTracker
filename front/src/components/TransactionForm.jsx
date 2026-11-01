@@ -6,11 +6,13 @@ export function TransactionForm({onTransactionCreated}) {
     const [description, setDescription] = useState('');
     const [type, setType] = useState('expense');
     const [transactionDate, setTransactionDate] = useState('');
+    const [isSubmitting, setIsSubmittimg] = useState(false)
     async function handleSubmit(e) {
         e.preventDefault();
         if (!amount || Number(amount) <= 0 || !description.trim() || !transactionDate) {
             return;
         }
+        setIsSubmittimg(true)
         try {
             const newTransaction = {
                 type, amount: Number(amount), description, transaction_date: transactionDate
@@ -21,8 +23,10 @@ export function TransactionForm({onTransactionCreated}) {
             setType('expense')
             setTransactionDate('')
             await onTransactionCreated()
-        } catch (error) {
-            console.error('Error creating transaction:', error);
+        } catch (err) {
+            console.error('Error creating transaction:', err);
+        } finally {
+            setIsSubmittimg(false)
         }
         
     }
@@ -49,7 +53,7 @@ export function TransactionForm({onTransactionCreated}) {
                     <label className="font-bold text-slate-900 dark:text-white" htmlFor="transactionDate">Transaction Date</label>
                     <input type="date" id="transactionDate" value={transactionDate} onChange={(e) => setTransactionDate(e.target.value)} className="min-h-11 w-full min-w-0 rounded-lg border border-gray-200 bg-white p-2 dark:border-slate-700 dark:bg-slate-900 text-slate-900 dark:text-white"/>
                 </div>
-                <button type="submit" className="min-h-11 rounded-xl bg-slate-900 px-4 py-3 font-medium text-white transition-colors hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-white">Add Transaction</button>
+                <button type="submit" disabled={isSubmitting} className="min-h-11 rounded-xl bg-slate-900 px-4 py-3 font-medium text-white transition-colors hover:bg-slate-800 dark:bg-blue-600 dark:hover:bg-blue-500 dark:text-white">{isSubmitting ? "Adding" : "Add Transaction" }</button>
             </form>
         </div>
         

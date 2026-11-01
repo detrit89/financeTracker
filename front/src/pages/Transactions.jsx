@@ -6,9 +6,10 @@ import { SummaryCard } from "../components/Summary.jsx";
 import { useState } from "react";
 import { SearchBar } from "../components/SearchBar.jsx";
 
+
 export function Transactions() {
     const [filterType, setFilterType] = useState("all")
-    const {transactions ,handleDelete, handleTransactionUpdate, income, expenses } = useTransactions();
+    const {transactions ,handleDelete, handleTransactionUpdate, income, expenses, loading, error } = useTransactions();
     const [search, setSearch] = useState("");
     const filteredTransactions = transactions.filter((transaction) =>
         (transaction.description.toLowerCase().includes(search.toLowerCase()) || transaction.type.toLowerCase().includes(search.toLowerCase())) && (filterType === "all" || transaction.type === filterType)
@@ -48,14 +49,13 @@ export function Transactions() {
                 </div>
                 <div className="mt-5 min-w-0">
                     <div className="min-w-0">
-                        {filteredTransactions.length === 0 ? (
+                        {loading ? (<p className="py-10 text-center text-gray-500 dark:text-slate-400">Loading...</p>) : error ? (<p className="py-10 text-center text-gray-500 dark:text-slate-400">{error}</p>) : filteredTransactions.length === 0 ? (
                             <p className="py-10 text-center text-gray-500 dark:text-slate-400">No transaction found</p>
                         ) : (
                             <TransactionList transactions={filteredTransactions} onDelete={handleDelete} onUpdate={handleTransactionUpdate} /> )}
                     </div>
                 </div>
             </div>
-            
         </div>
     )
 }
